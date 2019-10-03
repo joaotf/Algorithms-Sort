@@ -12,27 +12,37 @@ Por isso, ele não é recomendado para programas que precisem de velocidade e op
 
 package main
 
-import "time"
+import (
+  "time"
+  
+)
 
 var count int
 
 func Bubble_Sort(array []int) ([]int, int, float64) {
 	arrayLength := len(array)
+	var inicio int64	
+	var final int64
+	var tempofinal float64
 
-	inicio := time.Now().UnixNano() / int64(time.Millisecond)
+
+	inicio = time.Now().UnixNano()
 
 	for i := 0; i < arrayLength; i++ {
 		count++
 		for j := 0; j < arrayLength-i-1; j++ {
 			count++
 			if array[j] > array[j+1] {
+				count++
 				array[j], array[j+1] = array[j+1], array[j]
 				count++
 			}
 		}
 	}
-	final := time.Now().UnixNano() / int64(time.Millisecond)
-	tempofinal := float64(final - inicio)
+	final = time.Now().UnixNano()
+
+	
+  	tempofinal = float64(final-inicio)/ 1000000
 
 	return array, count, tempofinal
 }

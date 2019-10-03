@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+  "os"
 )
 
 func perguntaproDoidao() int {
@@ -21,7 +22,7 @@ func arraySort(tamanho int) []int {
 	r1 := rand.New(s1)
 	a := make([]int, tamanho)
 	for i := 0; i < len(a); i++ {
-		a[i] = r1.Intn(20000)
+		a[i] = r1.Intn(900000)
 	}
 	return a
 }
@@ -29,24 +30,24 @@ func arraySort(tamanho int) []int {
 func main() {
 	var tamanho int
 	var array []int
-	var max int
 	var menu int
 
 	fmt.Print("Menu\n1)Counting Sort\n2)Selection Sort\n3)Bubble Sort\nOpção:")
 	_, err := fmt.Scan(&menu)
 	if err == nil {
 	}
-
+for(menu != 0){
 	switch menu {
 	case 1:
 		{
 			tamanho = perguntaproDoidao()
 			array = arraySort(tamanho)
-			max = findMinAndMax(array)
+			count1,max := findMinAndMax(array)
 			fmt.Println("Array não ORDENADO : ", array)
 			count, tempofinal, resultado := Counting_Sort(array, max)
 
-			fmt.Println("\n\nCounting Sort (Finished) : ", resultado, "\n\nContador : ", count-max, "\nTempo : ", tempofinal)
+			fmt.Println("\n\nCounting Sort (Finished) : ", resultado, "\n\nContador : ", (count1+count)-max, "\nTempo : ", tempofinal)
+      os.Exit(3)
 		}
 	case 2:
 		{
@@ -55,6 +56,7 @@ func main() {
 			fmt.Println("Array não ORDENADO : ", array)
 			arrays, count, tempofinal := Selection_Sort(array)
 			fmt.Println("\n\nSelection Sort (Finished) : ", arrays, "\n\nContador : ", count, "\nTempo : ", tempofinal)
+      os.Exit(3)
 		}
 	case 3:
 		{
@@ -63,8 +65,15 @@ func main() {
 			fmt.Println("Array não ORDENADO : ", array)
 			arrayd, count, tempofinal := Bubble_Sort(array)
 			fmt.Println("\n\nBubble Sort (Finished) : ", arrayd, "\n\nContador : ", count, "\nTempo : ", tempofinal)
-		}
+      os.Exit(3)
+    }
+  default:
+    fmt.Println("Opção Inválida!\n\n")
+    break;
 
 	}
 
+
 }
+}
+
