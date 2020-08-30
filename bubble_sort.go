@@ -4,17 +4,16 @@ A ideia é percorrer o vector diversas vezes, e a cada passagem fazer flutuar pa
 Essa movimentação lembra a forma como as bolhas em um tanque de água procuram seu próprio nível, e disso vem o nome
 do algoritmo.
 
-No melhor caso, o algoritmo executa n operações relevantes, onde n representa o número de elementos do vector.
+No melhor caso, o algoritmo executa n operações relevantes, onde n representa o número de elementos do vetor.
 No pior caso, são feitas n² operações.
 A complexidade desse algoritmo é de ordem quadrática.
 Por isso, ele não é recomendado para programas que precisem de velocidade e operem com quantidade elevada de dados.
 */
 
-package main
+package main;
 
 import (
   "time"
-  
 )
 
 var count int
@@ -39,9 +38,7 @@ func Bubble_Sort(array []int) ([]int, int, float64) {
 			}
 		}
 	}
-	final = time.Now().UnixNano()
 
-	
   	tempofinal = float64(final-inicio)/ 1000000
 
 	return array, count, tempofinal

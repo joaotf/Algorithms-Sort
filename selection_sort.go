@@ -7,13 +7,11 @@ com os n − 1 elementos restantes, até os últimos dois elementos.
 
 */
 
-package main
+package main;
 
 import (
   "time"
 )
-
-
 
 func Selection_Sort(items []int) ([]int, int, float64) {
 	var count int
@@ -39,9 +37,7 @@ func Selection_Sort(items []int) ([]int, int, float64) {
 		items[i], items[minIdx] = items[minIdx], items[i]
 		count++
 	}
-	final = time.Now().UnixNano() 
 
-	
   	tempofinal = float64(final - inicio)/1000000
 
 	return items, count, tempofinal

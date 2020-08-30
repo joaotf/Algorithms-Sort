@@ -12,7 +12,7 @@ Complexidade(Caso Médio) : O( n + k )
 Complexidade(Melhor Caso) : O( n + k )
 */
 
-package main
+package main;
 
 import (
 	"time"
